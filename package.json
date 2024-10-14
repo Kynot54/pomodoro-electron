@@ -1,0 +1,46 @@
+{
+  "name": "pomodoro-app",
+  "version": "0.0.5",
+  "description": "Pomodoro Timer for Worrk and Studying",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "test": "echo \"Error: No Test Specified\" && exit 1",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Kynot54/pomodoro-electron.git"
+  },
+  "keywords": [
+    "Pomodoro",
+    "Timer"
+  ],
+  "author": "Kyle Whynott",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kynot54/pomodoro-electron/issues"
+  },
+  "homepage": "https://github.com/Kynot54/pomodoro-electron#readme",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.4.0",
+    "@electron-forge/maker-deb": "^7.5.0",
+    "@electron-forge/maker-dmg": "^7.5.0",
+    "@electron-forge/maker-flatpak": "^7.5.0",
+    "@electron-forge/maker-pkg": "^7.5.0",
+    "@electron-forge/maker-rpm": "^7.5.0",
+    "@electron-forge/maker-snap": "^7.5.0",
+    "@electron-forge/maker-squirrel": "^7.5.0",
+    "@electron-forge/maker-zip": "^7.5.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
+    "@electron-forge/plugin-fuses": "^7.4.0",
+    "@electron-forge/publisher-github": "^7.5.0",
+    "@electron/fuses": "^1.8.0",
+    "electron": "^32.1.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1",
+    "update-electron-app": "^3.0.0"
+  }
+}
