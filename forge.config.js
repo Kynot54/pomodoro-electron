@@ -10,20 +10,30 @@ module.exports = {
   rebuildConfig: {},
   makers: [
         {
-            name: '@electron-forge/maker-squirrel',
-            config: { 
-                authors: 'Kyle Whynott',
+            name: '@electron-forge/maker-snap',
+            config: {
+                features: {
+                    audio: true,
+
+                }
             }
         },
         {
-            name: '@electron-forge/maker-zip' 
+            name: '@electron-forge/maker-squirrel',
+            config: { 
+                authors: 'Kyle Whynott',
+                description: 'A Pomodoro Timer Productivity App'
+            }
         },
         {   
             name: '@electron-forge/maker-deb',
             config: {
                 options: {
                     maintainer: "Kyle Whynott",
-                    homepage: "https://www.kwhynott.dev"
+                    homepage: "https://www.kwhynott.dev",
+                    priority: 'optional',
+                    categories: ['Office', 'Utility'],
+                    icon: ''
                 }
             },
             platforms: ['linux']
@@ -32,10 +42,26 @@ module.exports = {
             name: '@electron-forge/maker-rpm',
             config: {
                 options: {
+                    name: 'Pomodoro Electron App',
+                    productName: 'Pomodoro Timer',
+                    genericName: 'Productivity Timer',
+                    description: 'A GUI application to Keep Track of Time and Maintain Productivity.',
+                    version: "1.0",
+                    categories: ['Office', 'Utility'],
+                    icon: '',
                     homepage: 'https://www.kwhynott.dev'
                 }
             },
-            platforms: ['linux']
+        },
+        {
+            name: '@electron-forge/maker-dmg',
+            config: {
+                debug: true,
+                name: 'Pomodoro Timer',
+                icon: '',
+                iconSize: 96,
+                overwrite: true
+            }
         }
   ],
   publishers: [
