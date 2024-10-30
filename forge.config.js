@@ -8,7 +8,7 @@ module.exports = {
     asar: true,
     osxSign: {},
     windowsSign: {},
-    platform: ['darwin', 'linux', 'win32']
+    all: true
   },
   rebuildConfig: {},
   makers: [
@@ -20,19 +20,19 @@ module.exports = {
                     audio: true,
                     webgl: true
                 },
-                summary: 'Pomodor Timer',
+                summary: 'Pomodoro Timer',
             }
         },
         {
             name: '@electron-forge/maker-flatpak',
             config: {
                 options: {
-                    id: 'dev.kwhynott.pomodoro',
+                    //id: 'com.github.kynot54.pomodoro',
                     productName: 'Pomodoro Timer',
                     genericName: 'Timer',
                     description: 'Productivity Timer for the Web',
                     base: 'main',
-                    icon: '',
+                    icon: './icons/pomodoro.png',
                     categories: ['Office', 'Utility']
                 }
             }
@@ -41,7 +41,8 @@ module.exports = {
             name: '@electron-forge/maker-squirrel',
             config: { 
                 authors: 'Kyle Whynott',
-                description: 'A Pomodoro Timer Productivity App'
+                description: 'A Pomodoro Timer Productivity App',
+                setupIcon: './icons/pomodoro.ico'
             }
         },
         {   
@@ -49,10 +50,10 @@ module.exports = {
             config: {
                 options: {
                     maintainer: "Kyle Whynott",
-                    homepage: "https://www.kwhynott.dev",
+                    //homepage: "https://www.kwhynott.dev",
                     priority: 'optional',
                     categories: ['Office', 'Utility'],
-                    icon: ''
+                    icon: './icons/pomodoro.png'
                 }
             },
             platforms: ['linux']
@@ -68,7 +69,7 @@ module.exports = {
                     version: '1.0.0',
                     categories: ['Office', 'Utility'],
                     icon: '',
-                    homepage: 'https://www.kwhynott.dev'
+                    //homepage: 'https://www.kwhynott.dev'
                 }
             },
         },
@@ -87,11 +88,20 @@ module.exports = {
     {
         name: '@electron-forge/publisher-github',
         config: {
+            draft: true,
+            prerelease: false,
+            generateReleaseNotes: true,
             repository: {
                 owner: 'Kynot54',
-                name: 'Pomodoro Timer Application'
+                name: 'pomodoro-electron'
             },
-            prerelease: true
+        }
+    },
+    {
+        name: '@electron-forge/publisher-snapcraft',
+        config: {
+                // TODO: May Have to Update this Later
+                release: '[latest/edge, insider/stable]'
         }
     }
   ],
