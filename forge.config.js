@@ -4,17 +4,36 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 
 module.exports = {
   packagerConfig: {
+    name: 'Pomodoro Timer App',
     asar: true,
-    osxSign: {}
+    osxSign: {},
+    windowsSign: {},
+    platform: ['darwin', 'linux', 'win32']
   },
   rebuildConfig: {},
   makers: [
         {
             name: '@electron-forge/maker-snap',
             config: {
+                version: '1.0.0',
                 features: {
                     audio: true,
-
+                    webgl: true
+                },
+                summary: 'Pomodor Timer',
+            }
+        },
+        {
+            name: '@electron-forge/maker-flatpak',
+            config: {
+                options: {
+                    id: 'dev.kwhynott.pomodoro',
+                    productName: 'Pomodoro Timer',
+                    genericName: 'Timer',
+                    description: 'Productivity Timer for the Web',
+                    base: 'main',
+                    icon: '',
+                    categories: ['Office', 'Utility']
                 }
             }
         },
@@ -46,7 +65,7 @@ module.exports = {
                     productName: 'Pomodoro Timer',
                     genericName: 'Productivity Timer',
                     description: 'A GUI application to Keep Track of Time and Maintain Productivity.',
-                    version: "1.0",
+                    version: '1.0.0',
                     categories: ['Office', 'Utility'],
                     icon: '',
                     homepage: 'https://www.kwhynott.dev'
