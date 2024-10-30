@@ -1,13 +1,14 @@
 {
   "name": "pomodoro-app",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Pomodoro Timer for Worrk and Studying",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
     "test": "echo \"Error: No Test Specified\" && exit 1",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
   "repository": {
     "type": "git",
